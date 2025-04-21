@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Shorts Blocker",
+  "version": "2.0",
+  "description": "Bloque les YouTube Shorts et te motive à bosser",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["*://www.youtube.com/*"],
+  "action": {
+  "default_popup": "popup.html",
+  "default_icon": "icon.png"
+},
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+  {
+    "resources": ["block.html", "block.js"],
+    "matches": ["<all_urls>"]
+  }
+]
+}
